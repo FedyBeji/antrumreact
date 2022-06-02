@@ -1,0 +1,38 @@
+$dark: #1C0909;
+$primary: #8a2324;
+$secondary: #5C1718;
+$semi-light: #F9E4E6;
+$light: #f2f2f2;
+$danger: #E32627;
+
+
+$colors:
+        primary $primary,
+        secondary $secondary,
+        dark $dark,
+        danger $danger,
+        light $light,
+        semi-light $semi-light,
+;
+
+@each $color in $colors{
+  .text-#{nth($color,1)}{
+    color: #{nth($color,2)} !important;
+  }
+}
+@each $color in $colors{
+  .bg-#{nth($color , 1)}{
+    background-color: #{nth($color,2)} !important;
+  }
+}
+@each $color in $colors{
+  .border-#{nth($color,1)}{
+    border-color: #{nth($color,2)} !important;
+  }
+}
+
+@for $i from 0 through 10 {
+  .opacity-#{$i} {
+    opacity: $i/10 ;
+  }
+}

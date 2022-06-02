@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*, ::before, ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+@import "./inc/variables",
+"./inc/layout",
+"./inc/form",
+"./inc/settings",
+"./inc/fonts",
+"inc/nav",
+"inc/header",
+"inc/footer",
+"inc/modals",
+"inc/btn&title",
+"inc/setup",
+"inc/herobanner",
+"inc/admin",
+"inc/pages/payments",
+"inc/pages/home",
+"inc/pages/contact",
+"inc/pages/portfolio",
+"inc/pages/beats",
+"inc/pages/about";
+
+
+body {
+  overflow-x: hidden;
+  color: $light;
+  background-image: linear-gradient(to right, $dark, $primary, $primary, $dark);
+}
+.page-block{
+  display: flex;
+  flex-wrap: wrap;
+}

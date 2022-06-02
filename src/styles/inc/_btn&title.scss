@@ -1,0 +1,246 @@
+
+
+
+
+
+$LIGHTING_FLOOR: 1;
+$LIGHTING_CEIL: 2;
+$LIGHTING_FLAT: 3;
+
+@mixin text3d(
+  $primary,
+  $depth: 5,
+  $shadowsteps: 5,
+  $shadowincrementer: 3px,
+  $shadowopacity: 0.5,
+  $primaryshadowcolour: #000,
+  $lighting: $LIGHTING_CEIL
+) {
+  $predefinedShadows: (
+          0 0 5px rgba($primaryshadowcolour, 0.05),
+          0 -1px 3px rgba($primaryshadowcolour, 0.2),
+          0 3px 5px rgba($primaryshadowcolour, 0.2)
+  );
+  $value: ();
+  @for $i from 1 through $depth {
+    $num: $i + px;
+    $hueadjust: $i;
+    @if ($lighting == $LIGHTING_FLOOR) {
+      $hueadjust: ($i * 2 - $depth - 5) * 1%;
+    }
+    @elseif ($lighting == $LIGHTING_CEIL) {
+      $hueadjust: -($i * 2 + $depth - 10) * 1%;
+    }
+    @elseif ($lighting == $LIGHTING_FLAT) {
+      $hueadjust: -$depth * 1%;
+    }
+    $colour: adjust-color($primary, $lightness: $hueadjust);
+    $theShadow: 0 $num 0 $colour;
+    $value: append($value, $theShadow, comma);
+  }
+
+  @for $i from 1 through $shadowsteps {
+    @if ($i >= length($predefinedShadows)) {
+      $dist: $i * $shadowincrementer;
+      $value: append($value, 0 $dist $dist rgba($primaryshadowcolour, $shadowopacity));
+    } @else {
+      $value: append($value, nth($predefinedShadows, $i));
+    }
+  }
+
+  text-shadow: $value;
+}
+
+
+.titresec {
+  color: $light;
+  line-height: 0.9em !important;
+
+  @include text3d(
+                  adjust-color(rgba($dark, .5), $lightness: -8%),
+          $depth: 8,
+          $primaryshadowcolour: adjust-color(rgba($dark, .5), $lightness: -10%, $saturation: +20%),
+          $shadowopacity: 0.3
+  );
+}
+.titreprim {
+  color: $light;
+  line-height: 0.9em !important;
+
+  @include text3d(
+                  adjust-color($primary, $lightness: -8%),
+          $depth: 8,
+          $primaryshadowcolour: adjust-color($primary, $lightness: -10%, $saturation: +20%),
+          $shadowopacity: 0.3
+  );
+}
+
+
+
+h1,h2,h3,h4,h5,h6{
+
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: .3rem 0 1.2rem 0;
+  text-align: center;
+  font-family: "LEMON MILK-RegularItalic", sans-serif;
+}
+
+h1{
+  font-size: 5rem;
+  text-shadow:
+          0 -1px 0 #fff,
+          0 1px 0 #2e2e2e,
+          0 2px 0 #2c2c2c,
+          0 3px 0 #2a2a2a,
+          0 4px 0 #282828,
+          0 5px 0 #262626,
+          0 6px 0 #242424,
+          0 7px 0 #222,
+          0 8px 0 #202020,
+          0 9px 0 #1e1e1e,
+          0 10px 0 #1c1c1c,
+          0 11px 0 #1a1a1a,
+          0 12px 0 #181818,
+          0 13px 0 #161616,
+          0 14px 0 #141414,
+          0 15px 0 #121212,
+          0 22px 30px rgba(0, 0, 0, 0.9);
+}
+
+h2{
+  font-size:2.2rem;
+  line-height: 0.9em !important;
+
+  @include text3d(
+                  adjust-color($primary, $lightness: -8%),
+          $depth: 8,
+          $primaryshadowcolour: adjust-color($primary, $lightness: -10%, $saturation: +20%),
+          $shadowopacity: 0.3
+  );
+}
+
+h3{
+  font-size: 1.5rem;
+  line-height: 0.9em !important;
+
+  @include text3d(
+                  adjust-color($primary, $lightness: -8%),
+          $depth: 8,
+          $primaryshadowcolour: adjust-color($primary, $lightness: -10%, $saturation: +20%),
+          $shadowopacity: 0.3
+  );
+}
+
+
+
+
+
+
+
+
+
+
+
+.btn{
+  //display: block;
+  width: max-content;
+  margin: .5rem;
+  color: $light;
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  background: none;
+  box-sizing: border-box;
+  box-shadow: 0 6px $dark;
+  border-radius: .25rem;
+  position: relative;
+  //left: 50%;
+  //transform: translateX(-50%);
+  outline: none;
+font-family: "LEMON MILK-RegularItalic", sans-serif;
+
+  overflow: hidden;
+  transition: 0.5s;
+  span{
+    position: absolute;
+    width: 25%;
+    height: 100%;
+    background-color: $semi-light;
+    transform: translateY(150%);
+    border-radius: 50%;
+    left: calc((var(--n) - 1) * 25%);
+    transition: 0.5s;
+    transition-delay: calc((var(--n) - 1) * 0.1s);
+    z-index: -1;
+  }
+
+  &:hover{
+
+    color: $dark ;
+    box-shadow: 0 4px $dark;
+    top: 2px;
+    cursor: pointer;
+    span{
+      transform: translateY(0) scale(2);
+
+    }
+  }
+  &:active{
+    box-shadow: 0 0 $dark;
+    top: 6px;
+    cursor: pointer;
+  }
+}
+
+.btn.active{
+  //color: $primary;
+ // border:2px solid $primary !important;
+  background-color: rgba($dark,.5);
+  box-shadow: 0 0 $dark;
+  top: 6px;
+  &:hover{
+    color: $light;
+  }
+}
+.btn.disabled{
+  //color: $primary;
+  border:2px solid $primary !important;
+  background-color: rgba($light,.5);
+  box-shadow: 0 0 $dark;
+  color: $primary;
+  top: 6px;
+  cursor: not-allowed;
+  pointer-events: none;
+
+}
+@each $color in $colors{
+  .btn-#{nth($color,1)}{
+    background-color: #{nth($color,2)} !important;
+
+  }
+}
+
+@each $color in $colors{
+  .btn-outline-#{nth($color,1)}{
+    //border:2px solid $dark !important;
+    border:2px solid #{nth($color,2)} !important;
+    //color: #{nth($color,2)} !important;
+  }
+}
+
+
+.btn span:nth-child(1) {
+  --n: 1;
+}
+
+.btn span:nth-child(2) {
+  --n: 2;
+}
+
+.btn span:nth-child(3) {
+  --n: 3;
+}
+
+.btn span:nth-child(4) {
+  --n: 4;
+}

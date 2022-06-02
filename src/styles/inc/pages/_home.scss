@@ -1,0 +1,50 @@
+.home-cards-block {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 3rem 0;
+
+  .card-main {
+    display: flex;
+    flex-direction: column;
+
+  }
+}
+
+
+
+.home-card{
+  padding: 1rem;
+  margin: 1rem;
+  position: relative;
+  box-shadow: 0 0 0 0 rgba($dark, .5);
+  //border: 1px solid $light;
+  border-radius: .3rem;
+  transition: all 250ms ease-in-out;
+  &:hover{
+    margin: .5rem .8rem 1.5rem .8rem;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 .5rem .5rem .5rem rgba($dark, .5);
+
+  }
+  h2{
+    margin: 2rem auto;
+  }
+  img {
+    width: 100%;
+    border-radius: .25rem;
+    overflow: hidden;
+    display: block;
+    margin: 2rem auto;
+  }
+  p{
+    text-align: justify;
+  }
+}
+
+.page-block-info{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

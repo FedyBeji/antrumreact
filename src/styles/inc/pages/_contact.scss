@@ -1,0 +1,14 @@
+.contact-block{
+  display: flex;
+  flex-wrap: wrap;
+  .contact-info{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .contact-info-block{
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+}

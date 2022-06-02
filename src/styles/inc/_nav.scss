@@ -1,0 +1,13 @@
+.primary-nav{
+  ul{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    li{
+      padding: 2rem 1rem;
+    }
+  }
+  .nav-link{
+    font-family: "LEMON MILK-RegularItalic", sans-serif;
+  }
+}
