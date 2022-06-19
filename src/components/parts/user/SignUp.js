@@ -49,15 +49,15 @@ export default function SignUp() {
                         <div onClick={closeModal} className="modal-bg fixed top-0 bg-dark/[.5] h-screen w-screen"></div>
                         <div className="modal-content z-10 rounded-xl bg-primary w-2/3 border-2 border-xl border-light">
                             <div className="modal-header px-8 border-b-2 border-light flex justify-between items-center">
-                                <h2 className='py-4'>sfsfs</h2>
+                                <h2 className='py-4'>s'inscrire</h2>
                                 <button onClick={closeModal}>
                                     <FontAwesomeIcon icon="fa-solid fa-xmark" size='3x'/>
                                 </button>
                             </div>
                             <div className="modal-body p-4 w-100">
                                 <form onSubmit={handleForm}
-                                      className="sign-up-form flex justify-center items-center flex-col">
-                                    <div className="w-full">
+                                      className="sign-up-form flex flex-wrap">
+                                    <div className="w-1/2 px-3 py-2">
                                         <label htmlFor="signUpEmail">e-mail</label>
                                         <input
                                             ref={addInputs}
@@ -68,7 +68,7 @@ export default function SignUp() {
                                             className='form-input'
                                         />
                                     </div>
-                                    <div className="w-full">
+                                    <div className="w-1/2 px-3 py-2">
                                         <label htmlFor="signUpPwd">mot de passe</label>
                                         <input
                                             ref={addInputs}
@@ -79,7 +79,7 @@ export default function SignUp() {
                                             className='form-input'
                                         />
                                     </div>
-                                    <div className="w-full">
+                                    <div className="w-1/2 px-3 py-2">
                                         <label htmlFor="signUpPwdRepeat">répété le mot de passe</label>
                                         <input
                                             ref={addInputs}
@@ -90,8 +90,12 @@ export default function SignUp() {
                                             className='form-input'
                                         />
                                     </div>
-                                    <p>{validation}</p>
-                                    <button type='submit' className='btn btn-outline-light'>envoyer</button>
+
+                                    <div className="w-full">
+                                        <p>{validation}</p>
+                                        <button type='submit' className='btn btn-outline-light'>envoyer</button>
+                                    </div>
+
                                 </form>
                             </div>
                         </div>

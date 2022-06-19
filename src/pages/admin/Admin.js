@@ -22,11 +22,12 @@ function Admin(props) {
                     <AdminNavbar/>
                     <div className="w-4/5">
                         <Outlet/>
+                        <Footer/>
                     </div>
                 </section>
 
 
-                <Footer/>
+
             </main>
 
         </>

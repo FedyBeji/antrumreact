@@ -34,6 +34,7 @@ import SellsManagement from "./pages/admin/SellsManagement";
 import Order from "./pages/account/Order";
 import Details from "./pages/account/Details";
 import Download from "./pages/account/Download";
+import BeatMakersManagement from "./pages/admin/BeatMakersManagement";
 
 const container = document.getElementById('root');
 const root = createRoot(container);
@@ -83,6 +84,7 @@ root.render(
                                 <Route path="home" element={<WebSiteManagement/>}/>
                                 <Route path="users" element={<UsersManagement/>}/>
                                 <Route path="beats" element={<BeatsManagement/>}/>
+                                <Route path="beatmakers" element={<BeatMakersManagement/>}/>
                                 <Route path="goodies" element={<ProductsManagement/>}/>
                                 <Route path="articles" element={<ArticlesManagement/>}/>
                                 <Route path="comments" element={<CommentsManagement/>}/>

@@ -30,9 +30,7 @@ function ProductsManagement(props) {
                             </div>
                             <br/>
                         </>
-
                     )
-
                 })}
             </div>
         </section>

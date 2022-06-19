@@ -22,6 +22,11 @@ function AdminNavbar(props) {
                     </Link>
                 </li>
                 <li>
+                    <Link className='nav-link link' to="/admin/beatmakers">
+                        gestion des beatmakers
+                    </Link>
+                </li>
+                <li>
                     <Link className='nav-link link' to="/admin/goodies">
                         gestion des goodies
                     </Link>

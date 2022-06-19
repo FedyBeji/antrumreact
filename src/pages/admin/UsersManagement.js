@@ -6,6 +6,7 @@ import {db} from "../../firebase-config";
 function UsersManagement(props) {
     const [users, setUsers] = useState([]);
     const usersCollection = collection(db, 'users')
+
     const [addValidation, setAddValidation] = useState('');
 
     let inputs = useRef([]);
